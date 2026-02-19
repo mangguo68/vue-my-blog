@@ -1,0 +1,230 @@
+/* Element Plus分页组件样式优化 */
+/* 独立的分页组件样式文件 */
+
+/* 亮色主题的样式覆盖 */
+.el-pagination__total {
+  background-color: #ffffff;
+  border-radius: 10px;
+  /* border: solid 1px #c4b5fd; */
+  padding-left: 16px;
+  padding-right: 16px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+.el-popper {
+  --el-popper-border-radius: 15px;
+  --el-color-primary: #c4b5fd;
+  --el-fill-color-light: #eae4ff90;
+  overflow: hidden;
+}
+
+/* 所有的样式变量复写需要放到这里，这里的变量优先级高于全局变量 */
+.el-pagination {
+  --el-border-radius-base: 10px;
+  --el-pagination-border-radius: 10px;
+  --el-pagination-hover-color: #c4b5fd;
+  --el-pagination-button-bg-color: #ffffff;
+  --el-color-primary: #c4b5fd;
+}
+
+.el-pagination .btn-prev {
+  border: solid 1px #c4b5fd;
+}
+
+.el-pagination .btn-next {
+  border: solid 1px #c4b5fd;
+}
+
+.el-pagination .number {
+  border: solid 1px #c4b5fd;
+}
+
+/* ==================== 暗色主题配置 ==================== */
+
+/* 暗色主题 - 总数显示 */
+.dark .el-pagination__total {
+  background-color: #1a1f35;
+  color: #d1d5db;
+  border: solid 1px #2d3548;
+}
+
+/* 暗色主题 - 下拉菜单 */
+.dark .el-popper {
+  --el-color-primary: #c4b5fd;
+  --el-fill-color-light: rgba(196, 181, 253, 0.15);
+  --el-bg-color: #1a1f35;
+  --el-bg-color-overlay: #1a1f35;
+  --el-border-color-light: #2d3548;
+  --el-text-color-primary: #f3f4f6;
+  --el-text-color-regular: #d1d5db;
+}
+
+/* 暗色主题 - 分页组件 */
+.dark .el-pagination {
+  --el-pagination-hover-color: #c4b5fd;
+  --el-pagination-button-bg-color: #1a1f35;
+  --el-pagination-bg-color: #1a1f35;
+  --el-color-primary: #c4b5fd;
+  --el-text-color-primary: #f3f4f6;
+  --el-text-color-regular: #d1d5db;
+  --el-border-color: #2d3548;
+  --el-border-color-light: #2d3548;
+  --el-fill-color: #252b42;
+  --el-fill-color-light: rgba(196, 181, 253, 0.15);
+}
+
+/* 暗色主题 - 前后翻页按钮 */
+.dark .el-pagination .btn-prev {
+  --el-disabled-bg-color: #2d2f39;
+  background-color: #1a1f35;
+  border: solid 1px #2d3548;
+  color: #d1d5db;
+}
+
+.dark .el-pagination .btn-next {
+  --el-disabled-bg-color: #2d2f39;
+  background-color: #1a1f35;
+  border: solid 1px #2d3548;
+  color: #d1d5db;
+}
+
+/* 暗色主题 - 页码按钮 */
+.dark .el-pagination .number {
+  background-color: #1a1f35;
+  border: solid 1px #2d3548;
+  color: #d1d5db;
+}
+
+/* 暗色主题 - 悬停效果 */
+.dark .el-pagination .btn-prev:hover:not(.is-disabled) {
+  background-color: #252b42;
+  border-color: #c4b5fd;
+  color: #c4b5fd;
+}
+
+.dark .el-pagination .btn-next:hover:not(.is-disabled) {
+  background-color: #252b42;
+  border-color: #c4b5fd;
+  color: #c4b5fd;
+}
+
+.dark .el-pagination .number:hover:not(.is-active):not(.is-disabled) {
+  background-color: #252b42;
+  border-color: #c4b5fd;
+  color: #c4b5fd;
+}
+
+/* 暗色主题 - 激活状态 */
+.dark .el-pagination .number.is-active {
+  background: linear-gradient(135deg, #c4b5fd 0%, #a78bfa 100%);
+  border-color: transparent;
+  color: #ffffff;
+}
+
+/* 暗色主题 - 禁用状态 */
+.dark .el-pagination .btn-prev.is-disabled,
+.dark .el-pagination .btn-next.is-disabled {
+  background-color: #0f1419;
+  border-color: #2d3548;
+  color: #6b7280;
+  opacity: 0.5;
+}
+
+.dark .el-pagination .number.is-disabled {
+  background-color: #0f1419;
+  border-color: #2d3548;
+  color: #6b7280;
+  opacity: 0.5;
+}
+
+/* 暗色主题 - 选择器 */
+.dark .el-select .el-select__wrapper {
+  background-color: #1a1f35;
+  border-color: #2d3548;
+  color: #f3f4f6;
+  box-shadow: none;
+}
+
+.dark .el-select .el-select__wrapper:hover:not(.is-focused) {
+  border-color: #c4b5fd;
+}
+
+.dark .el-select .el-select__wrapper.is-focused {
+  border-color: #c4b5fd;
+  box-shadow: 0 0 0 1px rgba(196, 181, 253, 0.2);
+}
+
+.dark .el-select .el-select__selected-item {
+  color: #f3f4f6;
+}
+
+.dark .el-select .el-select__suffix {
+  color: #d1d5db;
+}
+
+/* 暗色主题 - 下拉选项 */
+.dark .el-select-dropdown {
+  background-color: #1a1f35;
+  border-color: #2d3548;
+}
+
+.dark .el-select-dropdown__item {
+  color: #f3f4f6;
+}
+
+.dark .el-select-dropdown__item:hover {
+  background-color: #252b42;
+  color: #c4b5fd;
+}
+
+.dark .el-select-dropdown__item.is-selected {
+  background: linear-gradient(135deg, rgba(196, 181, 253, 0.2) 0%, rgba(167, 139, 250, 0.2) 100%);
+  color: #c4b5fd;
+  font-weight: 600;
+}
+
+.dark .el-select-dropdown__item.is-hovering {
+  background-color: #252b42;
+  color: #c4b5fd;
+}
+
+/* 暗色主题 - 省略号 */
+.dark .el-pagination .el-pager li.is-more {
+  background-color: transparent;
+  border: none;
+  color: #d1d5db;
+}
+
+/* 暗色主题 - 跳转输入框 */
+.dark .el-pagination__jump {
+  color: #d1d5db;
+}
+
+.dark .el-pagination__editor .el-input__wrapper {
+  background-color: #1a1f35;
+  border-color: #2d3548;
+  box-shadow: none;
+}
+
+.dark .el-pagination__editor .el-input__wrapper:hover {
+  border-color: #c4b5fd;
+}
+
+.dark .el-pagination__editor .el-input__wrapper.is-focus {
+  border-color: #c4b5fd;
+  box-shadow: 0 0 0 1px rgba(196, 181, 253, 0.2);
+}
+
+.dark .el-pagination__editor .el-input__inner {
+  color: #f3f4f6;
+}
+
+/* 暗色主题 - 滚动条 */
+.dark .el-scrollbar__thumb {
+  background-color: #2d3548;
+}
+
+.dark .el-scrollbar__thumb:hover {
+  background-color: #c4b5fd;
+}
