@@ -100,37 +100,44 @@ npm run preview
 - 文章列表展示
 - 最新文章优先
 - 响应式卡片布局
+<img width="2256" height="1284" alt="image" src="https://github.com/user-attachments/assets/7a0e1283-1f2c-4e86-9a71-f085ddf2c020" />
 
 ### 2. 文章详情
 
 - 文章内容展示
 - 阅读时间统计
 - 平滑滚动效果
+<img width="2256" height="1284" alt="image" src="https://github.com/user-attachments/assets/8c771b97-d407-457f-a8c5-d09292cdd96f" />
 
 ### 3. 标签页
 
 - 标签云展示
 - 按标签筛选文章
+<img width="2256" height="1284" alt="image" src="https://github.com/user-attachments/assets/41d63bb0-82d4-4172-a8fb-fa8fd67c2194" />
 
 ### 4. 归档页
 
 - 按时间归档文章
 - 年份分组展示
+<img width="2256" height="1284" alt="image" src="https://github.com/user-attachments/assets/6cf84011-48ef-48f0-bbcc-8a284f8aa274" />
 
 ### 5. 项目页
 
 - 项目列表展示
 - 项目卡片布局
+<img width="2256" height="1284" alt="image" src="https://github.com/user-attachments/assets/677d9cad-b469-4736-93d2-b66ada537170" />
 
 ### 6. 项目详情
 
 - 项目详细信息
 - 项目截图展示
+<img width="2256" height="1284" alt="image" src="https://github.com/user-attachments/assets/1dffe2c3-a0e6-4c98-9a9c-2c57ef545d39" />
 
 ### 7. 关于页
 
 - 个人介绍
 - 技术栈展示
+<img width="2256" height="1284" alt="image" src="https://github.com/user-attachments/assets/a353d12a-064c-4e52-a3c3-0441f1b5d1a5" />
 
 ## 🎨 主题定制
 
