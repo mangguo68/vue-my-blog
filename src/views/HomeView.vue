@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import { ref, computed, onMounted, watch } from 'vue'
 import { useRouter, useRoute } from 'vue-router'
-import { CollectionTag, Document, Calendar, Clock, Star, Promotion, View, HotWater, ArrowRightBold, DataAnalysis, RefreshRight, Warning } from '@element-plus/icons-vue'
-import HeroIllustration from '@/components/HeroIllustration.vue'
+import { CollectionTag, Document, Calendar, Clock, Star, Promotion, View, HotWater, ArrowRightBold, DataAnalysis, RefreshRight } from '@element-plus/icons-vue'
+import WelcomeBanner from '@/components/WelcomeBanner.vue'
 import ErrorState from '@/components/ErrorState.vue'
 import * as api from '@/services'
 import { useReadingTime, formatReadingTime } from '@/composables/useReadingTime'
@@ -153,33 +153,10 @@ function readingTime(article: Article) {
 <template>
   <div class="flex flex-col lg:flex-row lg:gap-8 xl:gap-10 animate-slide-up">
     <div class="flex-1 min-w-0">
-      <!-- Hero区域：仅无筛选时显示 -->
-      <div
+      <!-- 欢迎横幅：仅无筛选时显示 -->
+      <WelcomeBanner 
         v-if="!searchQuery && !selectedTag && !tagFromQuery"
-        class="mb-10 sm:mb-12 modern-card bg-gradient-to-br from-blog-card to-blog-primary/5 dark:from-blog-card dark:to-blog-secondary/10 p-6 sm:p-8 md:p-12 flex flex-col md:flex-row items-center gap-6 sm:gap-8 md:gap-10 shadow-purple"
-      >
-        <div class="flex-shrink-0 w-40 h-28 md:w-48 md:h-32">
-          <HeroIllustration class="w-full h-full" />
-        </div>
-        <div class="text-center md:text-left">
-          <h1 class="heading-2 text-gray-800 dark:text-gray-100 mb-3">
-            欢迎来到我的技术博客
-          </h1>
-          <p class="page-section-desc text-lg mb-4">
-            分享前端技术、编程心得与生活感悟
-          </p>
-          <div class="flex flex-wrap gap-4 justify-center md:justify-start text-sm text-blog-muted">
-            <span class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-blog-primary/10 text-blog-primary">
-              <el-icon class="w-4 h-4"><Document /></el-icon>
-              {{ stats.totalArticles }} 篇文章
-            </span>
-            <span class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-blog-secondary/10 text-blog-secondary">
-              <el-icon class="w-4 h-4"><CollectionTag /></el-icon>
-              {{ stats.totalTags }} 个标签
-            </span>
-          </div>
-        </div>
-      </div>
+      />
 
       <!-- 特色文章推荐 -->
       <div v-if="!searchQuery && !selectedTag && !tagFromQuery" class="mb-10 sm:mb-12">
