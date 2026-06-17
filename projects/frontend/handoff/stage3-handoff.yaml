@@ -1,0 +1,149 @@
+# Stage 3 交接文档 - WelcomeBanner 组件测试设计
+
+## 项目信息
+project_id: "US-FE-001"
+project_name: "WelcomeBanner 组件"
+module: "frontend"
+stage3_completion_date: "2024-12-19"
+
+## Stage 3 产出物
+deliverables:
+  test_case_document:
+    file_path: "projects/frontend/testing/WelcomeBanner测试用例设计.md"
+    status: "completed"
+    verified: true
+
+## 测试目标模块
+test_targets:
+  - name: "WelcomeBanner.vue"
+    path: "src/components/WelcomeBanner.vue"
+    type: "component"
+    test_count: 15
+    priority: "high"
+  
+  - name: "useWelcomeBanner"
+    path: "src/composables/useWelcomeBanner.ts"
+    type: "composable"
+    test_count: 4
+    priority: "high"
+  
+  - name: "集成测试"
+    path: "页面集成"
+    type: "integration"
+    test_count: 1
+    priority: "medium"
+
+## 测试数据 Fixtures
+fixtures:
+  props_data:
+    valid_props: "完整有效的 Props 数据"
+    boundary_props: "边界值测试数据（空值、长文本）"
+    invalid_props: "非法值测试数据（null、undefined）"
+  
+  locale_data:
+    supported_languages: ["en", "hi", "id"]
+    fallback_scenarios: "不支持语言的回退测试数据"
+  
+  viewport_data:
+    responsive_breakpoints: "移动端、平板端、桌面端视口尺寸"
+
+## 测试用例统计
+total_test_cases: 20
+
+test_case_breakdown:
+  component_tests: 10     # TC1-TC5 基础渲染 + TC14-TC15 样式 + TC16-TC17 错误处理 + TC18 兼容性 + TC19-TC20 性能
+  composable_tests: 4     # TC6-TC9 Hook 功能测试
+  integration_tests: 4    # TC10 页面集成 + TC11-TC13 响应式测试
+  error_handling: 2       # TC16-TC17 错误处理
+  performance_tests: 2    # TC19-TC20 性能测试
+
+priority_distribution:
+  high_priority: 11       # 核心功能 + Composable 测试
+  medium_priority: 7      # 集成测试 + 样式测试 + 错误处理
+  low_priority: 2        # 兼容性 + 性能测试
+
+## 关键测试接口
+key_interfaces:
+  component_props:
+    - "title (string, optional)"
+    - "subtitle (string, optional)"
+    - "locale ('en' | 'hi' | 'id', optional)"
+    - "customClass (string, optional)"
+  
+  composable_returns:
+    - "displayTitle (computed string)"
+    - "displaySubtitle (computed string)"
+    - "currentLocale (computed string)"
+  
+  component_methods:
+    - "无公开方法（纯展示组件）"
+
+## 测试覆盖分析
+coverage_analysis:
+  user_story_acceptance_criteria: "100% (所有 AC 条目已映射到测试用例)"
+  architecture_components: "100% (组件和 Composable 完全覆盖)"
+  error_scenarios: "100% (空值、非法值、渲染错误均已覆盖)"
+  responsive_design: "100% (所有断点的样式适配已测试)"
+  multi_language: "100% (三种语言 + 回退机制已覆盖)"
+
+## 验收标准映射
+acceptance_criteria_mapping:
+  AC1_component_structure: ["TC1", "TC10"]
+  AC2_technical_implementation: ["TC1", "TC2", "TC3", "TC4", "TC5", "TC17"]
+  AC3_responsive_design: ["TC11", "TC12", "TC13"]
+  AC4_styling: ["TC14", "TC15"]
+  AC5_integration: ["TC10"]
+
+## 风险与限制
+risks_and_limitations:
+  testing_framework: "项目暂无测试框架，测试用例为设计规范文档"
+  execution_plan: "Stage 5 将跳过实际测试执行步骤"
+  
+  test_environment_requirements:
+    - "需要 jsdom 环境进行组件测试"
+    - "需要响应式断点模拟功能"
+    - "需要多浏览器兼容性测试环境"
+
+## 性能测试目标
+performance_targets:
+  initialization_time: "< 100ms"
+  memory_usage: "< 1MB"
+  bundle_impact: "< 50KB (gzipped)"
+  rendering_performance: "60fps 流畅渲染"
+
+## Stage 4 准备事项
+stage4_instructions:
+  code_generation_focus:
+    - "严格按照测试用例中的接口定义生成代码"
+    - "确保所有测试用例中的方法名和属性名完全一致"
+    - "实现测试用例中描述的所有功能特性"
+    - "确保错误处理机制符合测试用例预期"
+  
+  key_implementation_points:
+    - "WelcomeBannerProps 接口必须与测试数据结构一致"
+    - "useWelcomeBanner 返回值必须与测试用例断言一致"
+    - "响应式样式类必须与测试用例验证的类名一致"
+    - "多语言回退逻辑必须按测试用例设计实现"
+
+## 测试框架集成建议
+future_testing_framework:
+  recommended_stack: "Vitest + Vue Test Utils + jsdom"
+  additional_tools: "Cypress (E2E), MSW (API Mock)"
+  
+  setup_requirements:
+    - "配置 TypeScript 测试环境"
+    - "集成 Tailwind CSS 测试支持"
+    - "配置多设备视口模拟"
+
+## 下阶段交接
+next_stage_handover:
+  stage: "Stage 4 - 代码生成"
+  primary_deliverable: "完整可运行的组件代码"
+  key_inputs_from_stage3:
+    - "详细的测试用例规范"
+    - "完整的接口定义"
+    - "错误处理和边界条件要求"
+    - "性能和兼容性标准"
+
+## 特别说明
+note: "项目暂无测试框架，测试用例文档作为设计规范文档使用，Stage 4 代码生成时按此文档编写逻辑结构，Stage 5 跳过 test_command 执行步骤"
