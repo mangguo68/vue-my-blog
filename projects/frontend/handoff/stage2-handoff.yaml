@@ -1,0 +1,162 @@
+# Stage 2 交接文档 - WelcomeBanner 组件架构设计
+
+## 项目信息
+project_id: "US-FE-001"
+project_name: "WelcomeBanner 组件"
+module: "frontend"
+stage2_completion_date: "2024-12-19"
+frontend_project: "vue-project"
+
+## Stage 2 产出物
+deliverables:
+  architecture_document:
+    file_path: "projects/frontend/architecture/WelcomeBanner架构设计文档.md"
+    status: "completed"
+    verified: true
+
+## 技术架构摘要
+architecture_summary:
+  framework: "Vue 3"
+  language: "TypeScript"
+  build_tool: "Vite"
+  api_style: "Composition API"
+  styling: "Tailwind CSS + Element Plus"
+  state_management: "Pinia (如需要)"
+
+## Figma 设计稿处理
+figma_fetched:
+  all_nodes_fetched: true
+  nodes_count: 0
+  design_constraints_source: "User Story 设计要求"
+  figma_differences: "无（未提供 Figma 设计稿）"
+
+## 代码输出结构
+code_output:
+  files:
+    - path: "components/WelcomeBanner.vue"
+      type: "component"
+      description: "主要的 WelcomeBanner 组件文件"
+    - path: "types/components.ts"
+      type: "types"
+      description: "组件相关的 TypeScript 类型定义"
+    - path: "composables/useWelcomeBanner.ts"
+      type: "composable"
+      description: "WelcomeBanner 业务逻辑 Composable"
+    - path: "locales/en.ts"
+      type: "locale"
+      description: "英文语言文件"
+    - path: "locales/hi.ts"
+      type: "locale"
+      description: "印地语语言文件"
+    - path: "locales/id.ts"
+      type: "locale"
+      description: "印尼语语言文件"
+  
+  total_files: 6
+
+## 关键接口设计
+key_interfaces:
+  props_interface: "WelcomeBannerProps"
+  composable_function: "useWelcomeBanner"
+  locale_interface: "WelcomeBannerLocale"
+  config_interface: "WelcomeBannerConfig"
+
+## 组件依赖关系
+dependencies:
+  internal:
+    - "@/types/components"
+    - "@/composables/useWelcomeBanner"
+    - "@/locales/*"
+  external:
+    - "vue (^3.5.27)"
+    - "tailwindcss (^4.1.18)"
+    - "element-plus (^2.13.2)"
+
+## 响应式设计规范
+responsive_design:
+  breakpoints:
+    mobile: "< 768px"
+    tablet: "768px - 1023px"
+    desktop: ">= 1024px"
+  
+  layout_strategy: "移动优先，渐进增强"
+  
+  key_adjustments:
+    - "字体大小：移动端 text-3xl，桌面端 text-4xl"
+    - "内边距：移动端 py-8 px-4，桌面端 py-12 px-8"
+    - "容器最大宽度：max-w-4xl"
+
+## 多语言支持
+i18n_implementation:
+  supported_languages: ["en", "hi", "id"]
+  implementation_strategy: "Composable 内置文案 + Props 覆盖"
+  fallback_language: "en"
+  
+  text_keys:
+    - "welcome_title"
+    - "welcome_subtitle"
+
+## 性能要求
+performance_requirements:
+  initialization_time: "< 100ms"
+  memory_usage: "< 1MB"
+  bundle_size_impact: "< 50KB (gzipped)"
+  ssr_compatible: true
+
+## 测试策略
+testing_strategy:
+  unit_tests:
+    - "Props 传入测试"
+    - "多语言切换测试" 
+    - "响应式样式测试"
+    - "错误处理测试"
+  
+  integration_tests:
+    - "页面集成测试"
+    - "用户交互测试"
+
+## Stage 3 准备事项
+stage3_instructions:
+  testing_focus:
+    - "组件渲染测试"
+    - "Props 验证测试"
+    - "多语言功能测试"
+    - "响应式布局测试"
+  
+  key_test_scenarios:
+    - "默认配置下的组件渲染"
+    - "自定义 title/subtitle 的传入"
+    - "不同语言环境的文案显示"
+    - "移动端和桌面端样式适配"
+    - "错误场景的降级处理"
+
+## 风险提醒
+risks_and_considerations:
+  - "确保 TypeScript 类型检查通过"
+  - "验证 Tailwind CSS 类名在所有断点下生效"
+  - "测试多语言文案的显示效果"
+  - "确认组件在不同页面中的集成兼容性"
+
+## 架构决策记录
+architecture_decisions:
+  - decision: "使用 Composition API 而非 Options API"
+    reason: "更好的 TypeScript 支持和逻辑复用"
+  
+  - decision: "多语言文案内置在 Composable 中"
+    reason: "减少外部依赖，简化集成复杂度"
+  
+  - decision: "使用 Tailwind CSS 而非 CSS Modules"
+    reason: "与项目现有技术栈保持一致"
+  
+  - decision: "支持 Props 覆盖默认文案"
+    reason: "提高组件的灵活性和可定制性"
+
+## 下阶段交接
+next_stage_handover:
+  stage: "Stage 3 - 测试设计"
+  primary_deliverable: "测试用例文档"
+  key_inputs_from_stage2:
+    - "完整的技术架构设计"
+    - "详细的组件接口定义"
+    - "多语言和响应式设计规范"
+    - "性能和错误处理要求"
